@@ -1,20 +1,19 @@
-function solution(t, p) {
-    var count = 0;
-    var num = 0;
-    for(i=0; i<=t.length-p.length; i++){
-        for(j=i; j<i+p.length; j++){
-            num +=t[j];
+function solution(sizes) {
+    let width = 0;
+    let height = 0;
+    for(i=0; i< sizes.length; i++){
+        if(sizes[i][0]< sizes[i][1]){   
+            sizes[i]= [sizes[i][1],sizes[i][0]];
         }
-        if(+num<= +p){
-            console.log(num);
-            count++;
+        if(sizes[i][0]> width){
+            width = sizes[i][0];
         }
-        num = 0;
-
+        if(sizes[i][1]> height){
+            height = sizes[i][1];
+        }
     }
-    return count;
+    return width*height
 }
-var t = "10203";
-var p = "15";
-console.log(solution(t, p));
+var sizes = [[14, 4], [19, 6], [6, 16], [18, 7], [7, 11]];
+console.log(solution(sizes));
 
