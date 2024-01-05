@@ -1,19 +1,15 @@
-function solution(sizes) {
-    let width = 0;
-    let height = 0;
-    for(i=0; i< sizes.length; i++){
-        if(sizes[i][0]< sizes[i][1]){   
-            sizes[i]= [sizes[i][1],sizes[i][0]];
-        }
-        if(sizes[i][0]> width){
-            width = sizes[i][0];
-        }
-        if(sizes[i][1]> height){
-            height = sizes[i][1];
-        }
-    }
-    return width*height
+function solution(s, n) {
+    return s.split('').map(char=> {if(char.match(/[a-zA-Z]/)){
+        let num = char.charCodeAt();
+        let Big = char === char.toUpperCase();
+        num = (Big ? 65 : 97) + (num - (Big ? 65 : 97) + n + 26) % 26;
+        return String.fromCharCode(num);
+    }else{
+        return char;
+    }}).join('');
+    
 }
-var sizes = [[14, 4], [19, 6], [6, 16], [18, 7], [7, 11]];
-console.log(solution(sizes));
+var s = "a B z";
+var n = 4;
+console.log(solution(s, n));
 
