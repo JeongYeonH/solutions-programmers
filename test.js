@@ -1,11 +1,14 @@
-function solution(food) {
-    var answer = '';
-    for(i=1; i<food.length; i++){
-        var howMany = Math.floor(food[i]/2);
-        answer += (i+'').repeat(howMany);
+function solution(a, b, n) {
+    var answer = 0;
+    while(n>=a){     
+        answer += Math.floor(n/a)*b;
+        console.log(n, Math.floor(n/a)*a, Math.floor(n/a)*b)
+        n = n-Math.floor(n/a)*a + Math.floor(n/a)*b;
     }
-    return answer + '0' + answer.split('').reverse().join('');
+    return answer;
 }
 
-var food = [1, 3, 4, 6];
-console.log(solution(food));
+var a = 3;
+var b = 1;
+var n = 20;
+console.log(solution(a, b, n));
