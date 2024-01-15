@@ -1,23 +1,13 @@
-function solution(k, score) {
-    answer =[];
-    dedicatedArr= []
-    // for 루프를 이용해 각 일차마다 점수를 차트에 더합니다.
-    for(i=0; i< score.length; i++){
-        dedicatedArr.push(score[i]);
-        // 내립차순으로 배열을 설정합니다.
-        dedicatedArr.sort((a,b)=> b-a);
-        // 아직 k만큼 리스트가 다 채워지지 않았다면,
-        // 뒤에 있는 가장 작은 숫자를 선택합니다.
-        if(dedicatedArr.length <=k){
-            // 각각 데이터는 정답 배열에 집어넣습니다.
-            answer.push(dedicatedArr[i]);
-        }else{
-            answer.push(dedicatedArr[k-1]);
-        }
-    }
+function solution(a, b) {
+    // 일주일을 요일 별로 배열을 만듭니다.
+    // 요일은 3글자 알파벳으로 요약해서 만듭니다.
+    var arr = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+    // 배열에서 int를 가져와 해당 날짜의 요일을 출력합니다
+    var answer = arr[new Date(`2016-${a}-${b}`).getDay()];
+    // 답을 반환합니다.
     return answer;
 }
 
-var k = 4;
-var score = [0, 300, 40, 300, 20, 70, 150, 50, 500, 1000];
-console.log(solution(k, score));
+var a = 5;
+var b = 24;
+console.log(solution(a, b));
