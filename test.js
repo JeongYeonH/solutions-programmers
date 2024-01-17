@@ -1,13 +1,16 @@
-function solution(a, b) {
-    // 일주일을 요일 별로 배열을 만듭니다.
-    // 요일은 3글자 알파벳으로 요약해서 만듭니다.
-    var arr = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
-    // 배열에서 int를 가져와 해당 날짜의 요일을 출력합니다
-    var answer = arr[new Date(`2016-${a}-${b}`).getDay()];
-    // 답을 반환합니다.
-    return answer;
+function solution(k, m, score) {
+    score.sort((a,b)=>b-a);
+    var sum = 0;
+    for(i=0; i<score.length; i+=m){
+        if(score[i+m-1]){
+            sum+=m*score[i+m-1]
+        }
+    }
+    return sum;
 }
 
-var a = 5;
-var b = 24;
-console.log(solution(a, b));
+var k = 3;
+var m = 3;
+var score = [4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2, 1];
+
+console.log(solution(k, m, score));
