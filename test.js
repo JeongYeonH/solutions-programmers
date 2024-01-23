@@ -20,7 +20,7 @@ function solution(n, m, section) {
  
   return count+1;
 }
-// 다 못품
+
 var n = 4;
 var m = 2;
 var section = [1, 2, 3, 4,5,6,7];
